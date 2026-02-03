@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deveshna ❤️</title>
+
+<style>
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    overflow-x: hidden;
+}
+
+.container {
+    background: rgba(0,0,0,0.4);
+    padding: 30px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 2s ease-in-out;
+    width: 100%;
+    max-width: 420px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+button {
+    width: 100%;
+    max-width: 220px;
+    padding: 14px;
+    font-size: 17px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff1e56;
+    color: white;
+}
+
+#noBtn {
+    background-color: black;
+    color: white;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* 📱 Extra Small Phone */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/wav">
+</audio>
+
+<div class="container">
+    <h1>Deveshna ❤️</h1>
+
+    <p>
+        Tum meri filmy kahani ki heroine ho... 🎬<br><br>
+        Jab se tum mili ho,<br>
+        background mein romantic music bajna shuru ho gaya hai... 🎶<br><br>
+        Deveshna... kya tum meri Valentine banogi? 🌹
+    </p>
+
+    <button id="yesBtn" onclick="sayYes()">Haan ❤️</button>
+    <button id="noBtn" ontouchstart="moveNo()" onmouseover="moveNo()">Nahi 🙈</button>
+</div>
+
+<script>
+function sayYes() {
+
+    document.body.innerHTML = `
+        <div style="text-align:center; color:white; padding:40px 20px;">
+            <h1 style="font-size:2.2rem;">Yeh Ishq Haiiiii ❤️😍</h1>
+
+            <p style="font-size:1.2rem; line-height:1.6;">
+                Tumne Haan bol di...<br><br>
+                Ab meri life ek perfect Bollywood love story ban gayi 🎬✨<br><br>
+                Thank you Deveshna ❤️
+            </p>
+        </div>
+    `;
+
+    startHearts();
+}
+
+function moveNo() {
+    let btn = document.getElementById("noBtn");
+
+    let maxX = window.innerWidth - btn.offsetWidth;
+    let maxY = window.innerHeight - btn.offsetHeight;
+
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * maxX + "px";
+    btn.style.top = Math.random() * maxY + "px";
+}
+
+/* Floating Hearts */
+function startHearts() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+
+        heart.innerHTML = "❤️";
+        heart.style.position = "absolute";
+        heart.style.fontSize = "22px";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "100%";
+        heart.style.animation = "float 4s linear";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+    }, 300);
+}
+</script>
+
+<style>
+@keyframes float {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100vh);}
+}
+</style>
+
+</body>
+</html>
